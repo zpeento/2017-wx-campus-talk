@@ -4,7 +4,7 @@
 	],
 	"window":{
 		"backgroundTextStyle":"light",
-		"navigationBarBackgroundColor": "#ccc",
+		"navigationBarBackgroundColor": "#fff",
 		"navigationBarTitleText": "宣讲会小程序",
 		"navigationBarTextStyle":"black"
 	}

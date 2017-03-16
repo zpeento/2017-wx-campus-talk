@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container log-list">
+<view class="container tab-list">
 	<block wx:for="{{tabs}}" wx:for-item="tab" wx:key="*this">
 		<text class="tab-item">
 			<text>
