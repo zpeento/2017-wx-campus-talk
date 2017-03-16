@@ -13,4 +13,7 @@
 			</text>
 		</text>
 	</block>
-</view>	 
+	<view class="footer">
+		<text>没有更多了哦</text>
+	</view>	 
+</view>

@@ -1,2 +1,4 @@
 App({
+	onLaunch : function(){
+	}
 })

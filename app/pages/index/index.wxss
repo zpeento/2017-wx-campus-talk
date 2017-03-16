@@ -2,12 +2,23 @@
 	display: flex;
 	flex-direction:column;
 	background-color: #ccc;
+	padding-left: 10rpx;
+	padding-right: 10rpx;
+	padding-top: 10rpx;
 }
 
 .tab-item{
 	text-align: center;
-	margin: 10rpx;
 	font-size: 28rpx;
 	background-color: #fff;
 	padding-bottom: 20rpx;
+	margin-bottom: 10rpx;
+}
+.footer{
+	padding-top: 10rpx;
+	padding-bottom: 10rpx;
+	text-align: center;
+	color: #999;
+	background-color:#fff; 
+	font-size: 32rpx;
 }
