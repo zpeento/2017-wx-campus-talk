@@ -1,0 +1,11 @@
+{
+	"pages":[
+		"pages/index/index"
+	],
+	"window":{
+		"backgroundTextStyle":"light",
+		"navigationBarBackgroundColor": "#ccc",
+		"navigationBarTitleText": "宣讲会小程序",
+		"navigationBarTextStyle":"black"
+	}
+}
