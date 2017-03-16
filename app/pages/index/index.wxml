@@ -2,7 +2,15 @@
 <view class="container log-list">
 	<block wx:for="{{tabs}}" wx:for-item="tab" wx:key="*this">
 		<text class="tab-item">
-			{{index+1}}.{{tab}}
+			<text>
+				{{tab.company}}
+			</text>
+			<text>
+				{{tab.date}} {{tab.weekDay}} {{tab.today}} {{tab.time}}
+			</text> 
+			<text>
+				{{tab.university}} {{tab.location}}
+			</text>
 		</text>
 	</block>
 </view>	 
