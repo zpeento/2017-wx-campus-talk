@@ -1,0 +1,10 @@
+<view class="weui-loadmore"
+      wx:if="{{modules.loading.show && !modules.loading.noData}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">{{modules.loading.text}}</view>
+</view>
+
+<view class="weui-loadmore weui-loadmore_line"
+      wx:if="{{modules.loading.show && modules.loading.noData}}">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{modules.loading.noDataText}}</view>
+</view>

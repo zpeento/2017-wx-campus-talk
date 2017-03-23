@@ -57,5 +57,13 @@ Page({
 		wx.stopPullDownRefresh()
 		// wx.request({});
 		wx.hideNavigationBarLoading()
-	}
-})
+	},
+
+	onReady: function () {  }, // 页面初次渲染完成
+	onShow: function () {  }, // 页面显示
+	onHide: function () {  }, // 页面隐藏
+	onUnload: function () {  }, // 页面卸载
+	onReachBottom: function () {  }, // 页面上拉触底事件的处理函数
+	onShareAppMessage: function () {  },// 用户点击右上角分享
+
+});

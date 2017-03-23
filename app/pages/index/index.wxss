@@ -22,3 +22,5 @@
 	background-color:#fff; 
 	font-size: 32rpx;
 }
+
+.weui-form-preview__label{ color:black; }
