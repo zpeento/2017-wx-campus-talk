@@ -4,13 +4,13 @@ var Promise = require('../lib/es6-promise/es6-promise.min.js').Promise;
  * 小程序对接后端API接口封装
  */
 var config = {
-    'host': '',
-    'port': '',
-    'base_url': '/index.php/',
+    'host': '192.168.135.30',
+    'port': '8089',
+    'base_url': '/interface/index.php/',
     'api_map': {
 
         "msg": {
-            "list" :"msg/list" // 宣讲会列表
+            "list" :"api/micro/information?page=1&pagesize=2" // 宣讲会列表
         },
     }
 };
@@ -25,7 +25,7 @@ var defaultPagesize = 10;
  * @returns {string}
  */
 function createUrl(api) {
-    return 'https://' + config.host + ":" + config.port + config.base_url + api;
+    return 'http://' + config.host + ":" + config.port + config.base_url + api;
 }
 
 /**

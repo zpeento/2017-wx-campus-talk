@@ -7,20 +7,22 @@
 				<view class="weui-form-preview__hd">
 					<view class="weui-form-preview__item">
 						<view class="weui-form-preview__label">{{tab.company}}</view>
+						<view wx:if="{{tab.official}}" class="weui-badge" style="margin-left: 5px;">官方</view>
+						<view wx:if="{{tab.selected}}" class="weui-badge" style="margin-left: 5px;">精选</view>
 					</view>
 				</view>
 				<view class="weui-form-preview__bd">
 					<view class="weui-form-preview__item">
-						<view class="weui-form-preview__label"><i class="fa fa-fw fa-calendar"></i>日期</view>
-						<view class="weui-form-preview__value">{{tab.date}} {{tab.weekDay}}</view>
+						<view class="weui-form-preview__label"><i class="fa fa-fw fa-calendar"></i>宣讲会开始时间</view>
+						<view class="weui-form-preview__value">{{tab.date}}</view>
 					</view>
 					<view class="weui-form-preview__item">
-						<view class="weui-form-preview__label"><i class="fa fa-fw fa-clock-o"></i>时间</view>
-						<view class="weui-form-preview__value">{{tab.today}} {{tab.time}}</view>
+						<view class="weui-form-preview__label"><i class="fa fa-fw fa-clock-o"></i>消息发布时间</view>
+						<view class="weui-form-preview__value">{{tab.publish}}</view>
 					</view>
 					<view class="weui-form-preview__item">
 						<view class="weui-form-preview__label"><i class="fa fa-fw fa-book"></i>学校</view>
-						<view class="weui-form-preview__value">{{tab.university}}</view>
+						<view class="weui-form-preview__value">{{tab.college}}</view>
 					</view>
 					<view class="weui-form-preview__item">
 						<view class="weui-form-preview__label"><i class="fa fa-fw fa-map-marker"></i>地点</view>
@@ -30,7 +32,7 @@
 			</view>
 		</block>
 		<view class="weui-loadmore weui-loadmore_line">
-			<view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+			<view class="weui-loadmore__tips weui-loadmore__tips_in-line">无更多数据</view>
 		</view>
 	</view>
 </view>
