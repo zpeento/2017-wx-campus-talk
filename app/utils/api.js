@@ -4,13 +4,13 @@ var Promise = require('../lib/es6-promise/es6-promise.min.js').Promise;
  * 小程序对接后端API接口封装
  */
 var config = {
-    'host': '192.168.135.30',
-    'port': '8089',
+    'host': '114.215.91.107',
+    'port': '8088',
     'base_url': '/interface/index.php/',
     'api_map': {
 
         "msg": {
-            "list" :"api/micro/information?page=1&pagesize=2" // 宣讲会列表
+            "list" :"api/micro/information" // 宣讲会列表
         },
     }
 };
@@ -24,8 +24,8 @@ var defaultPagesize = 10;
  * @param api
  * @returns {string}
  */
-function createUrl(api) {
-    return 'http://' + config.host + ":" + config.port + config.base_url + api;
+function createUrl(api, page, pageSize) {
+    return 'http://' + config.host + ":" + config.port + config.base_url + api+'?page='+page+'&pagesize='+pageSize;
 }
 
 /**
@@ -67,7 +67,7 @@ module.exports = {
          * @returns {Promise}
          */
         "list" : function(page, pagesize){
-            var url = createUrl(map.msg.list);
+            var url = createUrl(map.msg.list, page, pagesize);
             var method = "GET";
             var data = {};
             return send(url, method, data);

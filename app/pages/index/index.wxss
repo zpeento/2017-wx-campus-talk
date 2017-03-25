@@ -1,1 +1,5 @@
-.weui-form-preview__label{ color:black; }
+.weui-form-preview__label{ 
+    color:black; 
+    text-align: left;
+    text-align-last: left;
+}
