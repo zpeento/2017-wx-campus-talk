@@ -4,9 +4,9 @@
 	],
 	"window":{
 		"backgroundTextStyle":"light",
-		"navigationBarBackgroundColor": "#fff",
-		"navigationBarTitleText": "宣讲会小程序",
-		"navigationBarTextStyle":"black",
-		"enablePullDownRefresh":"true"
+		"navigationBarBackgroundColor": "#E64340",
+		"navigationBarTitleText": "招宣霸王",
+		"navigationBarTextStyle":"white",
+		"enablePullDownRefresh":true
 	}
 }

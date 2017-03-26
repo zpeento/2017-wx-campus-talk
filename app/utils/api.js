@@ -63,10 +63,10 @@ module.exports = {
          * 获取宣讲会列表信息
          *
          * @param page
-         * @param pagesize
+         * @param pageSize
          * @returns {Promise}
          */
-        "list" : function(page, pageSize){
+        "list" : function(page = 1, pageSize = defaultPagesize){
             var url = createUrl(map.msg.list);
             var method = "GET";
             var data = {

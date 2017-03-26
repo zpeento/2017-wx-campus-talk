@@ -2,4 +2,5 @@
     color:black; 
     text-align: left;
     text-align-last: left;
+    margin-right: 0px;
 }
