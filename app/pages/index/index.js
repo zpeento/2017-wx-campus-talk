@@ -21,7 +21,6 @@ Page({
 					res.data.data.slice(pageSize).map((value)=>{
 						dataset.unshift(value)
 					})
-					console.log(that.data.tabs)
 					//页面的条目数更新
 					pageSize += updateSize
 					that.setData({
@@ -31,8 +30,8 @@ Page({
 					console.log('无数据更新')
 				}
 			},
-			function(res){
-				console.log('无法获取数据:'+res)
+			function(err){
+				console.log('无法获取数据:'+err)
 			}
 		);
 		wx.hideNavigationBarLoading()
@@ -43,13 +42,13 @@ Page({
 		//读取列表数据并输出
 		get_list(1,10).then(
 			function(res){
-				console.log(res.data.data)
+				console.log(res.errMsg)
 				that.setData({
 					tabs:res.data.data
 				})
 		 	},
-			function(res){
-				console.log('无法获取数据'+res)
+			function(err){
+				console.log('get data error:'+err.data)
 			}
 		 );
 	}, // 页面初次渲染完成

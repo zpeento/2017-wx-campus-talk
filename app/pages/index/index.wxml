@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view clas="page">
 	<view class="page__bd">
-		<block wx:for="{{tabs}}" wx:for-item="tab" wx:key="*this">
+		<block wx:for="{{tabs}}" wx:for-item="tab"  wx:key="unique">
 			<view class="block_space"></view>
 			<view class="weui-form-preview">
 				<view class="weui-form-preview__hd">

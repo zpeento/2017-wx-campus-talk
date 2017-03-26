@@ -4,8 +4,7 @@ var Promise = require('../lib/es6-promise/es6-promise.min.js').Promise;
  * 小程序对接后端API接口封装
  */
 var config = {
-    'host': '114.215.91.107',
-    'port': '8088',
+    'host': 'api.lierenio.com',
     'base_url': '/interface/index.php/',
     'api_map': {
 
@@ -24,8 +23,9 @@ var defaultPagesize = 10;
  * @param api
  * @returns {string}
  */
-function createUrl(api, page, pageSize) {
-    return 'http://' + config.host + ":" + config.port + config.base_url + api+'?page='+page+'&pagesize='+pageSize;
+//
+function createUrl(api) {
+    return 'https://' + config.host + config.base_url + api
 }
 
 /**
@@ -47,7 +47,7 @@ function send(url, method, data){
                 resolve(res)
             },
             fail: function (err) {
-                reject(err)
+                resolve(err)
             }
         })
     });
@@ -66,10 +66,13 @@ module.exports = {
          * @param pagesize
          * @returns {Promise}
          */
-        "list" : function(page, pagesize){
-            var url = createUrl(map.msg.list, page, pagesize);
+        "list" : function(page, pageSize){
+            var url = createUrl(map.msg.list);
             var method = "GET";
-            var data = {};
+            var data = {
+                page:page,
+                pagesize:pageSize
+            };
             return send(url, method, data);
         }
 
