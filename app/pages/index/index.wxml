@@ -32,7 +32,8 @@
 			</view>
 		</block>
 		<view class="weui-loadmore weui-loadmore_line">
-			<view class="weui-loadmore__tips weui-loadmore__tips_in-line">无更多数据</view>
+			<view class="weui-loadmore__tips weui-loadmore__tips_in-line" wx:if="{{more}}">上拉加载更多数据</view>
+			<!--<view class="weui-loadmore__tips weui-loadmore__tips_in-line" wx:else>无更多数据</view>-->
 		</view>
 	</view>
 </view>
