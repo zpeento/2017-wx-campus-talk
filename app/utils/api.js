@@ -1,5 +1,4 @@
 var Promise = require('../lib/es6-promise/es6-promise.min.js').Promise;
-
 /**
  * 小程序对接后端API接口封装
  */

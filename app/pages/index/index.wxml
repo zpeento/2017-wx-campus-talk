@@ -13,12 +13,12 @@
 				</view>
 				<view class="weui-form-preview__bd">
 					<view class="weui-form-preview__item">
-						<view class="weui-form-preview__label"><i class="fa fa-fw fa-calendar"></i>宣讲会开始时间</view>
+						<view class="weui-form-preview__label"><i class="fa fa-fw fa-calendar"></i>开始时间</view>
 						<view class="weui-form-preview__value">{{tab.date}}</view>
 					</view>
 					<view class="weui-form-preview__item">
-						<view class="weui-form-preview__label"><i class="fa fa-fw fa-clock-o"></i>消息发布时间</view>
-						<view class="weui-form-preview__value">{{tab.publish}}</view>
+						<view class="weui-form-preview__label"><i class="fa fa-fw fa-clock-o"></i>倒计时</view>
+						<view class="weui-form-preview__value">{{tab.countdown}}</view>
 					</view>
 					<view class="weui-form-preview__item">
 						<view class="weui-form-preview__label"><i class="fa fa-fw fa-book"></i>学校</view>

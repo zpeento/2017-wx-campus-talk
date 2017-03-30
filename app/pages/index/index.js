@@ -1,5 +1,5 @@
 var api = getApp().lib.api;
-
+var timetostr = require('../../utils/utils.js').timetostr;
 Page({
 
 	data:{
@@ -14,9 +14,19 @@ Page({
 	 */
 	onReady: function () { 
 		var that = this;
+		var today = new Date().getTime();
+		console.date
+		//读取列表数据并输出;
 
-		//读取列表数据并输出
 		api.msg.list().then(function(res){
+			var dataGet = res.data.data;
+			dataGet.map((item)=>{
+				item.countdown =parseInt(((new Date(item.date).getTime())-today)/1000/60/60/24);
+				// today
+				// item.publish = timetostr(item.publish,'d H:i:s')
+			})
+			console.log(res.data.data);
+			res.data.data
 			that.setData({tabs:res.data.data});
 		}).catch(function(err){
 			console.log('get data error:'+err.errMsg);
@@ -33,6 +43,7 @@ Page({
 
 		//刷新数据
 		api.msg.list().then(function(res){
+			
 			wx.hideNavigationBarLoading();
 			// 恢复分页信息
 			that.setData({
@@ -54,15 +65,20 @@ Page({
 		var list = this.data.tabs;
 
 		api.msg.list(page+1).then(function(res){
-
+			
 			// 将获取的数据添加到末尾
 			var data = res.data.data;
+			var today = new Date().getTime();
+			data.map((item)=>{
+				item.countdown ='还剩'+parseInt(((new Date(item.date).getTime())-today)/1000/60/60/24)+'天'
+			});
+			console.log(data)
 			list = list.concat(data);
-			that.setData({tabs:list});
 
 			page = page + 1;// 更新分页信息
 			var noData = data.length == api.defaultPageSize;//判断是否已经到页尾
 			that.setData({
+				tabs:list,
 				page: page,
 				noData: noData
 			});
