@@ -1,7 +1,7 @@
 var api = getApp().lib.api;
 var timetostr = require('../../utils/utils.js').timetostr;
-Page({
 
+Page({
 	data:{
 		tabs:[],
 		page: 1,
@@ -14,19 +14,22 @@ Page({
 	 */
 	onReady: function () { 
 		var that = this;
-		var today = new Date().getTime();
+		
 		console.date
 		//读取列表数据并输出;
 
 		api.msg.list().then(function(res){
-			var dataGet = res.data.data;
-			dataGet.map((item)=>{
-				item.countdown =parseInt(((new Date(item.date).getTime())-today)/1000/60/60/24);
-				// today
-				// item.publish = timetostr(item.publish,'d H:i:s')
+			var data = res.data.data;
+			var timeCurrent = new Date().getTime();
+			data.map((item)=>{
+				var timeStart = new Date(item.date).getTime()
+				var countdown=parseInt((timeStart-timeCurrent)/1000/60/60/24);
+				if(countdown < 1){
+					countdown = timetostr(timeStart-timeCurrent,'H:i:s')
+				}
+				
+				item.countdown = '还剩 ' + countdown + ' 天';
 			})
-			console.log(res.data.data);
-			res.data.data
 			that.setData({tabs:res.data.data});
 		}).catch(function(err){
 			console.log('get data error:'+err.errMsg);
@@ -45,6 +48,18 @@ Page({
 		api.msg.list().then(function(res){
 			
 			wx.hideNavigationBarLoading();
+
+			var data = res.data.data;
+			var timeCurrent = new Date().getTime();
+			data.map((item)=>{
+				var timeStart = new Date(item.date).getTime()
+				var countdown=parseInt((timeStart-timeCurrent)/1000/60/60/24);
+				if(countdown < 1){
+					countdown = timetostr(timeStart-timeCurrent,'H:i:s')
+				}
+				
+				item.countdown = '还剩 ' + countdown + ' 天';
+			})
 			// 恢复分页信息
 			that.setData({
 				page: 1,
@@ -68,11 +83,16 @@ Page({
 			
 			// 将获取的数据添加到末尾
 			var data = res.data.data;
-			var today = new Date().getTime();
+			var timeCurrent = new Date().getTime();
 			data.map((item)=>{
-				item.countdown ='还剩'+parseInt(((new Date(item.date).getTime())-today)/1000/60/60/24)+'天'
-			});
-			console.log(data)
+				var timeStart = new Date(item.date).getTime()
+				var countdown=parseInt((timeStart-timeCurrent)/1000/60/60/24);
+				if(countdown < 1){
+					countdown = timetostr(timeStart-timeCurrent,'H:i:s')
+				}
+				
+				item.countdown = '还剩 ' + countdown + ' 天';
+			})
 			list = list.concat(data);
 
 			page = page + 1;// 更新分页信息
