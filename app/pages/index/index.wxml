@@ -1,6 +1,11 @@
 <!--index.wxml-->
 <view clas="page">
 	<view class="page__bd">
+		<view class="weui-btn-area">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <button type="default">学校</button>
+            </picker>
+		</view>
 		<block wx:for="{{tabs}}" wx:for-item="tab"  wx:key="unique">
 			<view class="block_space"></view>
 			<view class="weui-form-preview">
