@@ -66,18 +66,8 @@ module.exports = {
          * @param pageSize
          * @returns {Promise}
          */
-        "list" : function(page = 1, pageSize = defaultPagesize){
+        "list" : function(page = 1, pageSize = defaultPagesize, college = '广州大学'){
             var url = createUrl(map.msg.list);
-            var method = "GET";
-            var data = {
-                page:page,
-                pagesize:pageSize
-            };
-            return send(url, method, data);
-        },
-
-        "college_list" : function(page = 1, pageSize = defaultPagesize,college = '广州大学'){
-            var url = createUrl(map.msg.college_list);
             var method = "GET";
             var data = {
                 page:page,
@@ -85,6 +75,12 @@ module.exports = {
                 college:college
             };
             return send(url, method, data);
+        },
+
+        "college_list" : function(){
+            var url = createUrl(map.msg.college_list);
+            var method = "GET";
+            return send(url, method);
         },
 
     }

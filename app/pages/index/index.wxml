@@ -2,8 +2,8 @@
 <view clas="page">
 	<view class="page__bd">
 		<view class="weui-btn-area">
-            <picker bindchange="bindPickerChange" value="{{index}}" range="{{college}}">
-                <button type="default">学校</button>
+            <picker bindchange="bindPickerChange" value="{{college_index}}" range="{{college}}">
+                <button type="default">{{college[college_index]}}</button>
             </picker>
 		</view>
 		<block wx:for="{{tabs}}" wx:for-item="tab"  wx:key="unique">
@@ -38,7 +38,7 @@
 		</block>
 		<view class="weui-loadmore weui-loadmore_line">
 			<view class="weui-loadmore__tips weui-loadmore__tips_in-line" wx:if="{{noData}}">上拉加载更多数据</view>
-			<!--<view class="weui-loadmore__tips weui-loadmore__tips_in-line" wx:else>无更多数据</view>-->
+			<view class="weui-loadmore__tips weui-loadmore__tips_in-line" wx:else>没有更多数据</view>
 		</view>
 	</view>
 </view>
