@@ -2,7 +2,7 @@
 <view clas="page">
 	<view class="page__bd">
 		<view class="weui-btn-area">
-            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{college}}">
                 <button type="default">学校</button>
             </picker>
 		</view>

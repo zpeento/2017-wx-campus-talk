@@ -8,7 +8,8 @@ var config = {
     'api_map': {
 
         "msg": {
-            "list" :"api/micro/information" // 宣讲会列表
+            "list" :"api/micro/information", // 宣讲会列表
+            "college_list":"api/micro/college" //学校列表获取
         },
     }
 };
@@ -73,7 +74,18 @@ module.exports = {
                 pagesize:pageSize
             };
             return send(url, method, data);
-        }
+        },
+
+        "college_list" : function(page = 1, pageSize = defaultPagesize,college = '广州大学'){
+            var url = createUrl(map.msg.college_list);
+            var method = "GET";
+            var data = {
+                page:page,
+                pagesize:pageSize,
+                college:college
+            };
+            return send(url, method, data);
+        },
 
     }
 
