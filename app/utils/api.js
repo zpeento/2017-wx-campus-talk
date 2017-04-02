@@ -66,7 +66,7 @@ module.exports = {
          * @param pageSize
          * @returns {Promise}
          */
-        "list" : function(page = 1, pageSize = defaultPagesize, college = '广州大学'){
+        "list" : function(page = 1, pageSize = defaultPagesize, college){
             var url = createUrl(map.msg.list);
             var method = "GET";
             var data = {
@@ -77,6 +77,11 @@ module.exports = {
             return send(url, method, data);
         },
 
+        /**
+         * 获取学校列表信息
+         *
+         *
+         */
         "college_list" : function(){
             var url = createUrl(map.msg.college_list);
             var method = "GET";

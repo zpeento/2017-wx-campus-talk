@@ -10,21 +10,15 @@ Page({
 		college:[],
 		college_index: 0
 	},
-
 	/**
 	 * 切换学校时完成
 	 */
 	bindPickerChange: function(e) {
 		var that = this;
-
-        this.setData({
-            college_index: e.detail.value
-        })
-
-		api.msg.list(1,10,that.data.college[e.detail.value])
+		var collegeCurrent = e.detail.value>0?that.data.college[e.detail.value]:'';
+		api.msg.list(1,10,collegeCurrent)
 			.then(function(res){
 				var data = res.data.data;
-				console.log(data)
 				var timeCurrent = new Date().getTime();
 				data.map((item)=>{
 					var timeStart = new Date(item.date).getTime()
@@ -32,10 +26,15 @@ Page({
 					if(countdown < 1){
 						countdown = timetostr(timeStart-timeCurrent,'H:i:s')
 					}
-					
 					item.countdown = '还剩 ' + countdown + ' 天';
 				})
-				that.setData({tabs:res.data.data});
+				return data;
+			})
+			.then(function(data){
+				that.setData({
+					tabs:data,
+					college_index: e.detail.value
+				})
 			})
 			.catch(function(err){
 				console.log('get data error:'+err.errMsg);
@@ -52,13 +51,12 @@ Page({
 
 		api.msg.college_list()
 			.then(function(res){
+				console.log(res.data.data)
 				var data = res.data.data;
-				console.log(data)
 				var college = Object.keys(data);
+				college.unshift(['全部']);
 				that.setData({college:college});
-			})
-			.then(function(){
-				 return api.msg.list(1,10, that.data.college[0])
+				return api.msg.list(1,10,'')
 			})
 			.then(function(res){
 				var data = res.data.data;
@@ -72,7 +70,10 @@ Page({
 					
 					item.countdown = '还剩 ' + countdown + ' 天';
 				})
-				that.setData({tabs:res.data.data});
+				return data
+			})
+			.then(function(data){
+				that.setData({tabs:data});
 			})
 			.catch(function(err){
 				console.log('get data error:'+err.errMsg);
@@ -88,26 +89,30 @@ Page({
 		wx.stopPullDownRefresh();
 
 		//刷新数据
-		var collegeCurrent = that.data.college[that.data.college_index]
+
+		var collegeCurrent = that.data.college_index>0?that.data.college[that.data.college_index]:'';
 		api.msg.list(1,10,collegeCurrent)
-		.then(function(res){
-			var data = res.data.data;
-			var timeCurrent = new Date().getTime();
-			data.map((item)=>{
-				var timeStart = new Date(item.date).getTime()
-				var countdown=parseInt((timeStart-timeCurrent)/1000/60/60/24);
-				if(countdown < 1){
-					countdown = timetostr(timeStart-timeCurrent,'H:i:s')
-				}
-				
-				item.countdown = '还剩 ' + countdown + ' 天';
+			.then(function(res){
+				var data = res.data.data;
+				var timeCurrent = new Date().getTime();
+				data.map((item)=>{
+					var timeStart = new Date(item.date).getTime()
+					var countdown=parseInt((timeStart-timeCurrent)/1000/60/60/24);
+					if(countdown < 1){
+						countdown = timetostr(timeStart-timeCurrent,'H:i:s')
+					}
+					
+					item.countdown = '还剩 ' + countdown + ' 天';
+				})
+				return data
 			})
-			that.setData({tabs:res.data.data});
-		})
-		.catch(function(err){
-			console.log('get data error:'+err.errMsg);
-		});
-		wx.hideNavigationBarLoading(); 
+			.then(function(data){
+				that.setData({tabs:data});
+				wx.hideNavigationBarLoading(); 
+			})
+			.catch(function(err){
+				console.log('get data error:'+err.errMsg);
+			});
 	},
 
 	/**
@@ -117,39 +122,43 @@ Page({
 		var that = this;
 		var page = this.data.page;
 		var list = this.data.tabs;
-		var collegeCurrent = that.data.college[that.data.college_index];
-
-		api.msg.list(page+1,10,collegeCurrent).then(function(res){
+		var collegeCurrent = that.data.college_index>0?that.data.college[that.data.college_index]:'';
+		console.log(collegeCurrent)
+		api.msg.list(page+1,10,collegeCurrent)
+			.then(function(res){
 			
-			// 将获取的数据添加到末尾
-			var data = res.data.data;
-			var timeCurrent = new Date().getTime();
-			data.map((item)=>{
-				var timeStart = new Date(item.date).getTime()
-				var countdown=parseInt((timeStart-timeCurrent)/1000/60/60/24);
-				if(countdown < 1){
-					countdown = timetostr(timeStart-timeCurrent,'H:i:s')
-				}
-				
-				item.countdown = '还剩 ' + countdown + ' 天';
+				// 将获取的数据添加到末尾
+				var data = res.data.data;
+				var timeCurrent = new Date().getTime();
+				data.map((item)=>{
+					var timeStart = new Date(item.date).getTime()
+					var countdown=parseInt((timeStart-timeCurrent)/1000/60/60/24);
+					if(countdown < 1){
+						countdown = timetostr(timeStart-timeCurrent,'H:i:s')
+					}
+					
+					item.countdown = '还剩 ' + countdown + ' 天';
+				})
+				return data
 			})
-			list = list.concat(data);
+			.then(function(data){
+				list = list.concat(data);
 
-			page = page + 1;// 更新分页信息
-			var noData = data.length == api.defaultPageSize;//判断是否已经到页尾
-			that.setData({
-				tabs:list,
-				page: page,
-				noData: noData
-			});
+				page = page + 1;// 更新分页信息
+				var noData = data.length == api.defaultPageSize;//判断是否已经到页尾
+				that.setData({
+					tabs:list,
+					page: page,
+					noData: noData
+				});
 
-			wx.hideNavigationBarLoading();
+				wx.hideNavigationBarLoading();
+			})	
+			.catch(function(err){
 
-		}).catch(function(err){
+				console.log('无法获取数据:'+err.errMsg)
 
-			console.log('无法获取数据:'+err.errMsg)
-
-		})
+			})
 	 },
 
 	onShow: function () {  }, // 页面显示

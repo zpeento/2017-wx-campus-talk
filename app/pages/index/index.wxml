@@ -1,9 +1,10 @@
 <!--index.wxml-->
 <view clas="page">
 	<view class="page__bd">
-		<view class="weui-btn-area">
-            <picker bindchange="bindPickerChange" value="{{college_index}}" range="{{college}}">
-                <button type="default">{{college[college_index]}}</button>
+		<view class="weui-btn-area weui-flex header">
+			<view class="college_title weui-flex__item"><view class="placeholder">学校</view></view>
+            <picker bindchange="bindPickerChange" value="{{college_index}}" range="{{college}}" class="college_picker weui-flex__item">
+				<button type="default">{{college[college_index]}}</button>
             </picker>
 		</view>
 		<block wx:for="{{tabs}}" wx:for-item="tab"  wx:key="unique">
