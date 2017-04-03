@@ -47,7 +47,7 @@ function send(url, method, data){
                 resolve(res)
             },
             fail: function (err) {
-                resolve(err)
+                reject(err)
             }
         })
     });
@@ -64,9 +64,10 @@ module.exports = {
          *
          * @param page
          * @param pageSize
+         * @param college
          * @returns {Promise}
          */
-        "list" : function(page = 1, pageSize = defaultPagesize, college){
+        "list" : function(page = 1, pageSize = defaultPagesize, college=''){
             var url = createUrl(map.msg.list);
             var method = "GET";
             var data = {
