@@ -13,7 +13,8 @@ var func = {
 
 		var countdown = '';
         var timeCurrent = new Date().getTime();
-        var timeStart = new Date(timeString).getTime();
+		
+        var timeStart = new Date(timeString.replace(/-/g,"/")).getTime();
         var day = parseInt((timeStart-timeCurrent)/1000/60/60/24);
         var hour = parseInt((timeStart-timeCurrent)/1000/60/60);
         var minute = parseInt((timeStart-timeCurrent)/1000/60);
