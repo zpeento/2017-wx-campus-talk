@@ -1,11 +1,23 @@
 <!--index.wxml-->
 <view clas="page">
 	<view class="page__bd">
-		<view class="weui-btn-area weui-flex header">
+		<!--<view class="weui-btn-area weui-flex header">
 			<view class="college_title weui-flex__item"><view class="placeholder">学校</view></view>
             <picker bindchange="bindPickerChange" value="{{selected.index}}" range="{{college}}" class="college_picker weui-flex__item">
 				<button type="default">{{college[selected.index]}}</button>
             </picker>
+		</view>-->
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_select">
+				<view class="weui-cell__hd weui-cell__hd_in-select-after">
+					<view class="weui-label">国家/地区</view>
+				</view>
+				<view class="weui-cell__bd">
+					<picker bindchange="bindPickerChange" value="{{selected.index}}" range="{{college}}">
+						<view class="weui-select weui-select_in-select-after">{{college[selected.index]}}</view>
+					</picker>
+				</view>
+			</view>
 		</view>
 		<block wx:for="{{tabs}}" wx:for-item="tab"  wx:key="unique">
 			<view class="block_space"></view>

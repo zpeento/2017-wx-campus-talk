@@ -4,7 +4,7 @@
     text-align-last: left;
     margin-right: 0px;
 }
-.college_title{
+/*.college_title{
     flex:1 1 20%;
 }
 .college_title .placeholder{
@@ -12,10 +12,13 @@
 }
 .college_picker{
     flex:1 1 80%;
-}
-.college_picker button{
+}*/
+/*.college_picker button{
     background-color: #E64340;
     color: white;
     font-family: '黑体';
     border:none;
+}*/
+.weui-select::before{
+    border-width: 0 2px 2px 0;
 }

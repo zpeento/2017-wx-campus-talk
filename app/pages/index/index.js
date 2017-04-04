@@ -21,7 +21,8 @@ var func = {
 		if (minute < 15) countdown = "即将开始";
         else if (hour < 1) countdown = minute + "分钟后开始";
         else if (day < 1) countdown = '还剩 ' + hour + ' 小时';
-        else countdown = '还有 ' + day + ' 天';
+		else if (day > 7) countdown = '还剩' + parseInt(day/7) + '个多星期';
+        else countdown = '还剩 ' + day + ' 天';
 
         return countdown
     }
