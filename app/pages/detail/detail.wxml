@@ -1,0 +1,44 @@
+<!--detail.wxml-->
+<view class="weui-form-preview" bindtap="bindViewTap">
+    <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">珠海金山办公软件</view>
+            <view wx:if="{{official}}" class="weui-badge" style="margin-left: 5px;">官方</view>
+            <view wx:if="{{selected}}" class="weui-badge" style="margin-left: 5px;">精选</view>
+        </view>
+    </view>
+    <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label"><i class="fa fa-fw fa-calendar"></i>开始时间</view>
+            <view class="weui-form-preview__value">{{time}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label"><i class="fa fa-fw fa-map-marker"></i>地点</view>
+            <view class="weui-form-preview__value">{{tab.location}}</view>
+        </view>
+    </view>
+</view>
+ <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">公司简介</view>
+            <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+        </view>
+        <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">招聘岗位</view>
+            <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+        </view>
+        <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">宣讲流程</view>
+            <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+        </view>
+        <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">简历投递</view>
+            <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+        </view>
+        <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">联系方式</view>
+            <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+        </view>
+    </view>
+</view>

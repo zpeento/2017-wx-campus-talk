@@ -15,7 +15,7 @@
 		</view>
 		<block wx:for="{{tabs}}" wx:for-item="tab"  wx:key="unique">
 			<view class="block_space"></view>
-			<view class="weui-form-preview">
+			<view class="weui-form-preview" bindtap="bindViewTap">
 				<view class="weui-form-preview__hd">
 					<view class="weui-form-preview__item">
 						<view class="weui-form-preview__label">{{tab.company}}</view>

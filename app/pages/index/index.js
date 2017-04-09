@@ -154,6 +154,15 @@ Page({
 			});
 	},
 
+	/**
+	 * 点击tab后显示该招聘会的具体详情
+	 */
+	bindViewTap: function(e) {
+		//保留当前页面跳转到应用内的某个页面
+		wx.navigateTo({
+			url: '../detail/detail'
+		})
+	},
 	onShow: function () {  }, // 页面显示
 	onHide: function () {  }, // 页面隐藏
 	onUnload: function () {  }, // 页面卸载
