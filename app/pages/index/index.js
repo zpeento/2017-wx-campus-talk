@@ -158,9 +158,11 @@ Page({
 	 * 点击tab后显示该招聘会的具体详情
 	 */
 	bindViewTap: function(e) {
+		var company = e.currentTarget.id
+
 		//保留当前页面跳转到应用内的某个页面
 		wx.navigateTo({
-			url: '../detail/detail'
+			url: '../detail/detail?company='+company
 		})
 	},
 	onShow: function () {  }, // 页面显示

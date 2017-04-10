@@ -1,8 +1,8 @@
 <!--detail.wxml-->
-<view class="weui-form-preview" bindtap="bindViewTap">
+<view class="weui-form-preview">
     <view class="weui-form-preview__hd">
         <view class="weui-form-preview__item">
-            <view class="weui-form-preview__label">珠海金山办公软件</view>
+            <view class="weui-form-preview__label">{{company}}</view>
             <view wx:if="{{official}}" class="weui-badge" style="margin-left: 5px;">官方</view>
             <view wx:if="{{selected}}" class="weui-badge" style="margin-left: 5px;">精选</view>
         </view>
@@ -14,7 +14,7 @@
         </view>
         <view class="weui-form-preview__item">
             <view class="weui-form-preview__label"><i class="fa fa-fw fa-map-marker"></i>地点</view>
-            <view class="weui-form-preview__value">{{tab.location}}</view>
+            <view class="weui-form-preview__value">{{location}}</view>
         </view>
     </view>
 </view>
