@@ -47,29 +47,29 @@ Page({
 	/**
 	 * 页面初次渲染完成
 	 */
-	onReady: function () { 
-		var that = this;
+	// onReady: function () { 
+	// 	var that = this;
 		
-		//读取学校列表数据
-		api.msg.college_list()
-			.then(function(res){
-				var data = res.data.data;
-				var college = Object.keys(data);
-				college.unshift(['全部']);
-				that.setData({college:college});
-				return api.msg.list()
-			})
-			.then(function(res){
-				var data = res.data.data;
-				data.map((item)=>{
-					item.countdown = func.countdown(item.date);
-				});
-				that.setData({tabs:data});
-			})
-			.catch(function(err){
-				console.error(err);
-			});	
-	},
+	// 	//读取学校列表数据
+	// 	api.msg.college_list()
+	// 		.then(function(res){
+	// 			var data = res.data.data;
+	// 			var college = Object.keys(data);
+	// 			college.unshift(['全部']);
+	// 			that.setData({college:college});
+	// 			return api.msg.list()
+	// 		})
+	// 		.then(function(res){
+	// 			var data = res.data.data;
+	// 			data.map((item)=>{
+	// 				item.countdown = func.countdown(item.date);
+	// 			});
+	// 			that.setData({tabs:data});
+	// 		})
+	// 		.catch(function(err){
+	// 			console.error(err);
+	// 		});	
+	// },
 
 	/**
 	 * 下拉刷新
@@ -106,7 +106,6 @@ Page({
 
 		api.msg.list(page+1,10,college)
 			.then(function(res){
-			
 				// 将获取的数据添加到末尾
 				var data = res.data.data;
 				data.map((item)=>{
@@ -164,6 +163,31 @@ Page({
 		wx.navigateTo({
 			url: '../detail/detail?company='+company
 		})
+	},
+	onLoad: function () {
+		var that = this;
+		
+		//读取学校列表数据
+		api.msg.college_list()
+			.then(function(res){
+				console.log(res)
+				var data = res.data.data;
+				var college = Object.keys(data);
+				college.unshift(['全部']);
+				that.setData({college:college});
+				return api.msg.list()
+			})
+			.then(function(res){
+				console.log(res)
+				var data = res.data.data;
+				data.map((item)=>{
+					item.countdown = func.countdown(item.date);
+				});
+				that.setData({tabs:data});
+			})
+			.catch(function(err){
+				console.error(err);
+			});	
 	},
 	onShow: function () {  }, // 页面显示
 	onHide: function () {  }, // 页面隐藏
