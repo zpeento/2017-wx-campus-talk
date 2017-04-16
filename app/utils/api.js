@@ -88,7 +88,5 @@ module.exports = {
             var method = "GET";
             return send(url, method);
         },
-
     }
-
 };

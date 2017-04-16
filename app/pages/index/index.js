@@ -43,33 +43,6 @@ Page({
 			college: ''
 		}
 	},
-	
-	/**
-	 * 页面初次渲染完成
-	 */
-	// onReady: function () { 
-	// 	var that = this;
-		
-	// 	//读取学校列表数据
-	// 	api.msg.college_list()
-	// 		.then(function(res){
-	// 			var data = res.data.data;
-	// 			var college = Object.keys(data);
-	// 			college.unshift(['全部']);
-	// 			that.setData({college:college});
-	// 			return api.msg.list()
-	// 		})
-	// 		.then(function(res){
-	// 			var data = res.data.data;
-	// 			data.map((item)=>{
-	// 				item.countdown = func.countdown(item.date);
-	// 			});
-	// 			that.setData({tabs:data});
-	// 		})
-	// 		.catch(function(err){
-	// 			console.error(err);
-	// 		});	
-	// },
 
 	/**
 	 * 下拉刷新
@@ -157,13 +130,20 @@ Page({
 	 * 点击tab后显示该招聘会的具体详情
 	 */
 	bindViewTap: function(e) {
-		var company = e.currentTarget.id
-
+		var that = this;
+		//获取所点击tab的index值
+		var index = e.currentTarget.id;
+		//获取当前tab对应的innerhtml和position信息
+		var option = that.data.tabs[index];
 		//保留当前页面跳转到应用内的某个页面
 		wx.navigateTo({
-			url: '../detail/detail?company='+company
+			url: '../detail/detail?title='+option.title+'&date='+option.date+'&location='+option.college+' '+option.location+'&innerhtml='+option.innerhtml+'&position='+option.position
 		})
 	},
+
+	/**
+	 * 页面加载
+	 */
 	onLoad: function () {
 		var that = this;
 		

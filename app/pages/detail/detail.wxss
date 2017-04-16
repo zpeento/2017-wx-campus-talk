@@ -1,6 +1,3 @@
-.weui-form-preview__label{ 
-    color:black; 
-    text-align: left;
-    text-align-last: left;
-    margin-right: 0px;
+.page__bd{
+    background-color: #fff;
 }

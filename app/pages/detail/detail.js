@@ -1,14 +1,21 @@
 Page({
-    data:{
-        company:'珠海金山办公软件',
-        time:'2017-04-09 14:00',
-        location:'华南师范大学石牌桥校区桃李园'
-    },
+    data:{},
 
     /**
 	 * 详情页面初次渲染完成
 	 */
     onLoad:function(option){
-        console.log(option.company)
+        var that = this;
+        //当职位信息为'暂无信息'时，不显示职位信息内容
+        var display_position = option.position == '暂无信息' ?false:true;
+        
+        that.setData({
+            title:option.title,
+            time:option.date,
+            location:option.location,
+            position:option.position,
+            innerhtml:option.innerhtml,
+            display_position:display_position
+        })
     }
 })

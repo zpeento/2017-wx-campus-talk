@@ -13,14 +13,12 @@
 				</view>
 			</view>
 		</view>
-		<block wx:for="{{tabs}}" wx:for-item="tab"  wx:key="unique">
+		<block wx:for="{{tabs}}" wx:for-item="tab" wx:key="unique">
 			<view class="block_space"></view>
-			<view class="weui-form-preview" bindtap="bindViewTap" id="{{tab.company}}">
+			<view class="weui-form-preview" bindtap="bindViewTap" id="{{index}}">
 				<view class="weui-form-preview__hd">
 					<view class="weui-form-preview__item">
-						<view class="weui-form-preview__label">{{tab.company}}</view>
-						<view wx:if="{{tab.official}}" class="weui-badge" style="margin-left: 5px;">官方</view>
-						<view wx:if="{{tab.selected}}" class="weui-badge" style="margin-left: 5px;">精选</view>
+						<view class="weui-form-preview__label">{{tab.title}}</view>
 					</view>
 				</view>
 				<view class="weui-form-preview__bd">
