@@ -136,8 +136,18 @@ Page({
 		//获取当前tab对应的innerhtml和position信息
 		var option = that.data.tabs[index];
 		//保留当前页面跳转到应用内的某个页面
+		var key = "detail";
+		var data = {
+			title : option.title,
+			date : option.date,
+			location : option.college+' '+option.location,
+			innerhtml : option.innerhtml,
+			position : option.position
+		}
+		//将该tab对应的宣讲会详情存储到storage中
+		wx.setStorageSync(key,data);
 		wx.navigateTo({
-			url: '../detail/detail?title='+option.title+'&date='+option.date+'&location='+option.college+' '+option.location+'&innerhtml='+option.innerhtml+'&position='+option.position
+			url: '../detail/detail'
 		})
 	},
 

@@ -8,7 +8,7 @@
     <view class="weui-form-preview__bd">
         <view class="weui-form-preview__item">
             <view class="weui-form-preview__label"><i class="fa fa-fw fa-calendar"></i>开始时间</view>
-            <view class="weui-form-preview__value">{{time}}</view>
+            <view class="weui-form-preview__value">{{date}}</view>
         </view>
         <view class="weui-form-preview__item">
             <view class="weui-form-preview__label"><i class="fa fa-fw fa-map-marker"></i>地点</view>
