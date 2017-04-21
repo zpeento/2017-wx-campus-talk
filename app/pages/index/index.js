@@ -146,6 +146,7 @@ Page({
 		}
 		//将该tab对应的宣讲会详情存储到storage中
 		wx.setStorageSync(key,data);
+		//跳转到detail页面
 		wx.navigateTo({
 			url: '../detail/detail'
 		})

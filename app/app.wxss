@@ -1,5 +1,6 @@
 @import "lib/font-awesome/css/font-awesome.wxss";
 @import "lib/weui/css/weui.wxss";
+@import "lib/wxparse/wxParse.wxss";
 
 .clear-fixed{ clear: both; }
 
