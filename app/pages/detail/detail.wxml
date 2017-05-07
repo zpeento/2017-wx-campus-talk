@@ -1,6 +1,6 @@
 <!--detail.wxml-->
 <import src="../../lib/wxparse/wxParse.wxml"/> 
-<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+<!--<template is="wxParse" data="{{wxParseData:article.nodes}}"/>-->
 <view class="weui-form-preview">
     <view class="weui-form-preview__hd">
         <view class="weui-form-preview__item">
@@ -26,6 +26,6 @@
     </view>
     <view class="weui-article">
         <view class="weui-article__h1">招聘信息</view>
-        <view class="weui-article__p">{{innerhtml}}</view>       
+        <view class="weui-article__p"><template is="wxParse" data="{{wxParseData:article.nodes}}"/></view>       
     </view>
 </view>

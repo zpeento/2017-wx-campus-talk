@@ -176,7 +176,7 @@ module.exports = {
             var pattern = new RegExp(match[0]);
             ret = ret.replace(pattern, replace);
         }
-        
+
         return ret;
     },
 
@@ -186,7 +186,7 @@ module.exports = {
      * @param key
      * @returns {*}
      */
-    'getStorage': function(key){
+    getStorage: function(key){
         if (StorageAllowKey[key]) {
             return wx.getStorageSync(key)
         }
@@ -198,7 +198,7 @@ module.exports = {
      * @param data
      * @returns {*}
      */
-    'setStorage': function(key, data){
+    setStorage: function(key, data){
         if (StorageAllowKey[key]) {
             return wx.setStorageSync(key, data);
         }
@@ -210,7 +210,7 @@ module.exports = {
      * @param key
      * @returns {*}
      */
-    'removeStorage': function(key){
+    removeStorage: function(key){
         if (StorageAllowKey[key]) {
             return wx.removeStorageSync(key);
         }

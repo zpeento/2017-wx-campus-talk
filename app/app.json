@@ -1,7 +1,8 @@
 {
 	"pages":[
 		"pages/index/index",
-		"pages/detail/detail"
+		"pages/detail/detail",
+		"pages/strategy/strategy"
 	],
 	"window":{
 		"backgroundTextStyle":"light",
@@ -9,5 +10,22 @@
 		"navigationBarTitleText": "招宣霸王",
 		"navigationBarTextStyle":"white",
 		"enablePullDownRefresh":true
+	},
+	"tabBar":{
+		"color":"#000",
+		"selectedColor":"#D9250E",
+		"borderStyle":"white",
+		"backgroundColor":"#F8F8F8",
+		"list": [{
+			"selectedIconPath": "images/campus_talk_red.png", 
+			"iconPath": "images/campus_talk.png",
+			"pagePath":"pages/index/index",
+			"text":"宣讲会"
+		},{
+			"selectedIconPath": "images/strategy_red.png",
+			"iconPath": "images/strategy.png",
+			"pagePath":"pages/strategy/strategy",
+			"text":"应聘攻略"
+		}]
 	}
 }

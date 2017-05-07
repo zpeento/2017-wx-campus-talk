@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view clas="page">
+	<view class="page__bd">
+		<block wx:for="{{tabs}}" wx:for-item="tab" wx:key="unique">
+			<view class="block_space"></view>
+			<view class="weui-form-preview" bindtap="bindViewTap" id="{{index}}">
+				<view class="weui-form-preview__hd">
+					<view class="weui-form-preview__item">
+						<view class="weui-form-preview__label">{{tab.title}}</view>
+						<view class="weui-badge" wx:if="{tab.selected}">精选</view>
+					</view>
+				</view>
+				<view class="weui-form-preview__bd">
+					<view class="weui-form-preview__item">
+						<view class="weui-form-preview__label"><i class="fa fa-paw"></i>{{tab.job}}</view>
+						<view class="weui-form-preview__value"><i class="fa fa-fw fa-calendar"></i>{{tab.time}}</view>
+					</view>
+				</view>
+			</view>
+		</block>
+		<view class="weui-loadmore weui-loadmore_line">
+			<view class="weui-loadmore__tips weui-loadmore__tips_in-line" wx:if="{{noData}}">上拉加载更多数据</view>
+			<view class="weui-loadmore__tips weui-loadmore__tips_in-line" wx:else>没有更多数据</view>
+		</view>
+	</view>
+</view>
